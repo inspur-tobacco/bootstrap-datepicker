@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>日期选择插件测试页面</title>
+		<link id="bs-css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../dist/css/bootstrap-datepicker3.css" />
+		<link rel="stylesheet" href="./css/demo.css" />
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="../js/bootstrap-datepicker-extend.js"></script>
+	</head>
+	<body>
+		<div class="head">页面头部标题</div>
+		<div class="body">
+			<div class="content">
+				<div class="leftnav">
+					<table class="nav">
+						<tr><td>标签一</td></tr>
+						<tr><td>标签二</td></tr>
+						<tr><td>标签三</td></tr>
+						<tr><td>标签四</td></tr>
+						<tr><td>标签五</td></tr>
+						<tr><td>标签六</td></tr>
+					</table>
+				</div>
+				
+				<!--需要写在 bootstrap-datepicker-extend 代码里-->
+				<div class="datepicker-plugin">
+					<div class="datepicker-plugin-head">
+						<div class="datepicker-plugin-head-items">
+							<div class="datepicker-plugin-head-items-custom clicked" unselectable="on">自定义选择</div>
+							<div class="datepicker-plugin-head-items-month" unselectable="on">按月选择</div>
+							<div class="datepicker-plugin-head-items-week" unselectable="on">按投放周选择</div>
+						</div>
+					</div>
+					<div class="datepicker-plugin-body">
+						<div class="datepicker-plugin-body-custom" style="display: block;">
+							<div class="datepicker-plugin-body-custom-selector">
+								<div class="datepicker-plugin-body-custom-selector-list" unselectable="on">
+									<ul>
+										<li>自定义</li>
+										<li>本周</li>
+										<li>上周</li>
+										<li>本月</li>
+										<li>上月</li>
+										<li>本季</li>
+										<li>上季</li>
+										<li>今年</li>
+										<li>去年</li>
+										<li>近7天</li>
+										<li>近30天</li>
+									</ul>
+								</div>
+							</div>
+							<div class="datepicker-plugin-body-custom-dateranger input-daterange input-group">
+								<input type="text" class="input-sm form-control" name="start" value="2017-03-14" />
+    							<span class="input-group-addon">至</span>
+	    						<input type="text" class="input-sm form-control" name="end" value="2017-03-14" />
+							</div>
+						</div>
+						<div class="datepicker-plugin-body-month" data-date="2017-03" style="display: none;"></div>
+						<div class="datepicker-plugin-body-week" style="display: none;">
+							
+						</div>
+					</div>
+					<div class="datepicker-plugin-foot">
+						<div class="datepicker-plugin-foot-confirm" unselectable="on">确&nbsp;&nbsp;&nbsp;认</div>
+					</div>
+				</div>
+				<script src="../js/bootstrap-datepicker.js"></script>
+				<script src="../js/locales/bootstrap-datepicker.zh-CN.js"></script>
+				<script>
+					var itemNumber = 3;
+					$('.datepicker-plugin-head-items').css('width', 110 * itemNumber);
+					$('.datepicker-plugin-body-custom-dateranger').datepicker({
+						language: "zh-CN",
+						format: "yyyy-mm-dd",
+						todayHighlight: true,
+						maxViewMode: 2,
+						todayBtn: "linked",
+						autoclose: true,
+						orientation: "bottom auto"
+					});
+					$('.datepicker-plugin-body-month').datepicker({
+						language: "zh-CN",
+						format: "yyyy-mm",
+						minViewMode: 1,
+						maxViewMode: 2,
+					});
+					$('.datepicker-plugin-head-items div').click(function() {
+						if($(this).hasClass('clicked')) {
+							return;
+						}
+						var itemName = $(this).attr("class").split("-")[4];
+						var bodyClassName = '.datepicker-plugin-body-' + itemName;
+						$('.datepicker-plugin-head-items div').removeClass("clicked");
+						$(this).addClass("clicked");
+						$('.datepicker-plugin-body > div').css('display', 'none');
+						$(bodyClassName).css('display', 'block');
+					});
+					$('.datepicker-plugin-body-custom-selector').click(function(){
+						$(this).children('div').toggle();
+						$(document).click(function(e) {
+							if(!$(e.target).hasClass('datepicker-plugin-body-custom-selector')) {
+								$('.datepicker-plugin-body-custom-selector-list').css('display', 'none');
+							}
+						});
+					});
+					$('.datepicker-plugin-body-custom-selector-list li').click(function() {
+						$(this).parents('.datepicker-plugin-body-custom-selector').prepend($(this).text());
+					});
+					$('.datepicker-plugin-foot-confirm').mousedown(function() {
+						var $this = $(this);
+						$this.css('background-color', '#EEEEEE');
+						$this.on({
+							mouseout: function() {$this.css('background-color', '#FFFFFF');},
+							mouseover: function() {$this.css('background-color', '#EEEEEE');}
+						});
+						$(document).mouseup(function() {
+							$('.datepicker-plugin-foot-confirm').off('mouseout mouseover');
+						});
+					});
+					$('.datepicker-plugin-foot-confirm').mouseup(function() {
+						$(this).css('background-color', '#FFFFFF');
+					});
+				</script>
+				<!--需要写在 bootstrap-datepicker-extend 代码里-->
+				
+			</div>
+		</div>
+		<div class="foot">页脚文字………………</div>
+	</body>
+</html>

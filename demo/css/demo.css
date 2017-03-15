@@ -1,0 +1,185 @@
+.head
+{
+	background-color: yellow;
+	width: 1020px;
+	height: 100px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 100px;
+	font-size: xx-large;
+}
+.body
+{
+	width: 1020px;
+	height:800px;
+	margin: 10px auto;
+}
+.foot
+{
+	background-color: deepskyblue;
+	width: 1020px;
+	height: 100px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 100px;
+	font-size: xx-large;
+}
+.content
+{
+	width: 820px;
+	height: 800px;
+	background-color: #EEEEEE;
+	float: right;
+}
+.leftnav
+{
+	width: 200px;
+	height: 800px;
+	margin-left: -200px;
+	float: left;
+	background-color: #DCDCDC;
+}
+.nav td
+{
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	padding: 0px;
+	border: grey 2px solid;
+}
+
+/* 时间选择插件 css 代码 */
+.datepicker-plugin
+{
+	width: 400px;
+	height: auto;
+	margin: 10px auto;
+	background-color: #FFFFFF;
+	border: solid #999999 1px;
+}
+.datepicker-plugin-head
+{
+	width: auto;
+}
+.datepicker-plugin-head-items
+{
+	height: 30px;
+	margin: 15px auto;
+	border-radius: 4px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+.datepicker-plugin-head-items div
+{
+	cursor: pointer;
+	text-align: center;
+	line-height: 28px;
+	float: left;
+	width: 110px;
+	height: inherit;
+	padding: 0px;
+	margin: 0px 0px 0px -1px;
+	background-color: #FFFFFF;
+	border: solid #CCCCCC 1px;
+}
+.datepicker-plugin-head-items .clicked
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-body
+{
+	width: inherit;
+	height: auto;
+}
+.datepicker-plugin-body-custom
+{
+	width: inherit;
+	height: 35px;
+}
+.datepicker-plugin-body-custom-selector
+{
+	cursor: pointer;
+	float: left;
+	width: 105px;
+	height: 30px;
+	line-height: 28px;
+	text-align: center;
+	margin-left: 25px;
+	margin-right: 15px;
+	border: solid #CCCCCC 1px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+.datepicker-plugin-body-custom-selector-list
+{
+	display: none;
+	float: left;
+	background-color: #FFFFFF;
+	margin-top: 28px;
+	margin-left: -1px;
+	border: solid #CCCCCC 1px;
+}
+.datepicker-plugin-body-custom-selector-list ul
+{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+.datepicker-plugin-body-custom-selector-list li
+{
+	cursor: pointer;
+	display: block;
+	width: 103px;
+}
+.datepicker-plugin-body-custom-selector-list li:hover
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-body-custom-dateranger
+{
+	float: left;
+	width: 225px;
+}
+.datepicker-plugin-body-custom-dateranger input
+{
+	width: 100px;
+}
+.datepicker-plugin-body-month
+{
+	width: 220px;
+	height: 215px;
+	margin: 0px auto;
+}
+.datepicker-plugin-body-week
+{
+	width: inherit;
+	height: 100px;
+}
+.datepicker-plugin-foot
+{
+	width: inherit;
+	height: 50px;
+}
+.datepicker-plugin-foot-confirm
+{
+	cursor: pointer;
+	text-align: center;
+	line-height: 28px;
+	width: 80px;
+	height: 30px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	background-color: #FFFFFF;
+	border: solid #CCCCCC 1px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+/* 时间选择插件 css 代码 */

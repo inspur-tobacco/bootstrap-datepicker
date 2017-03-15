@@ -8,3 +8,6 @@ docs/_build
 # Folders to ignore
 bower_components
 node_modules
+
+# HBuilder project
+.project

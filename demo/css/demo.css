@@ -115,12 +115,22 @@
 	-moz-user-select: none;  /* Firefox */
 	-ms-user-select: none;  /* Internet Explorer、Edge */
 }
+.datepicker-plugin-body-custom-selector-text
+{
+	display: block;
+	width: auto;
+	height: inherit;
+	line-height: inherit;
+	text-align: center;
+	background-image: url(../img/selector_bg.png);
+	background-repeat: no-repeat;
+}
 .datepicker-plugin-body-custom-selector-list
 {
 	display: none;
 	float: left;
 	background-color: #FFFFFF;
-	margin-top: 28px;
+	margin-top: -2px;
 	margin-left: -1px;
 	border: solid #CCCCCC 1px;
 }
@@ -129,6 +139,10 @@
 	list-style-type: none;
 	padding: 0px;
 	margin: 0px;
+}
+.datepicker-plugin-body-custom-selector-list ul .liselected
+{
+	background-color: #EEEEEE;
 }
 .datepicker-plugin-body-custom-selector-list li
 {

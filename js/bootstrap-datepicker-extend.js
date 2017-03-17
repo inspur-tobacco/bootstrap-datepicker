@@ -1,4 +1,4 @@
-jQuery.datepickerPlugin = function(parameters) {
+jQuery.v6datepicker = function(parameters) {
 	
 	// 变量声明
 	

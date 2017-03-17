@@ -50,13 +50,87 @@
 }
 
 /* 时间选择插件 css 代码 */
+.datepicker-bar
+{
+	width: 400px;
+	height: 30px;
+	position: relative;
+}
+.datepicker-display
+{
+	width: 400px;
+	height: inherit;
+	float: left;
+	background-color: #FFFFFF;
+	border: solid #999999 1px;
+}
+.datepicker-display-prevmonth
+{
+	cursor: pointer;
+	width: 30px;
+	height: 29px;
+	float: left;
+	border-right: solid #999999 1px;
+	background-image: url(../img/prevmonth_bg.png);
+	background-repeat: no-repeat;
+}
+.datepicker-display-daterange
+{
+	color: #555555;
+	cursor: pointer;
+	width: 340px;
+	height: 29px;
+	float: left;
+	margin-left: -1px;
+}
+.datepicker-display-daterange .dpstart
+{
+	width: 120px;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	float: left;
+	margin-left: 40px;
+}
+.datepicker-display-daterange .dpto
+{
+	width: 21px;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	float: left;
+}
+.datepicker-display-daterange .dpend
+{
+	width: 120px;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	float: left;
+	margin-right: 40px;
+}
+.datepicker-display-nextmonth
+{
+	cursor: pointer;
+	width: 30px;
+	height: 29px;
+	float: left;
+	margin-left: -1px;
+	border-left: solid #999999 1px;
+	background-image: url(../img/nextmonth_bg.png);
+	background-repeat: no-repeat;
+}
 .datepicker-plugin
 {
 	width: 400px;
 	height: auto;
-	margin: 10px auto;
+	float: left;
+	margin-top: -1px;
 	background-color: #FFFFFF;
 	border: solid #999999 1px;
+	display: none;
+	position: absolute;
+	top: 30px;
 }
 .datepicker-plugin-head
 {

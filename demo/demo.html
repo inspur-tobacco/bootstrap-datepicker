@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset='UTF-8'>
 		<title>日期选择插件测试页面</title>
-		<link id="bs-css" href="css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../dist/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="./css/demo.css" />
-		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="../js/bootstrap-datepicker-extend.js"></script>
+		<script src='https://code.jquery.com/jquery-1.9.1.min.js'></script>
+		<script src='../js/bootstrap-datepicker-extend.js'></script>
+		<style type="text/css">
+.head
+{
+	background-color: yellow;
+	width: 1020px;
+	height: 100px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 100px;
+	font-size: xx-large;
+}
+.body
+{
+	width: 1020px;
+	height:800px;
+	margin: 10px auto;
+}
+.foot
+{
+	background-color: deepskyblue;
+	width: 1020px;
+	height: 100px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 100px;
+	font-size: xx-large;
+}
+.content
+{
+	width: 820px;
+	height: 800px;
+	background-color: #EEEEEE;
+	float: right;
+}
+.leftnav
+{
+	width: 200px;
+	height: 800px;
+	margin-left: -200px;
+	float: left;
+	background-color: #DCDCDC;
+}
+.nav td
+{
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	padding: 0px;
+	border: grey 2px solid;
+}
+		</style>
 	</head>
 	<body>
-		<div class="head">页面头部标题</div>
-		<div class="body">
-			<div class="content">
-				<div class="leftnav">
-					<table class="nav">
+		<div class='head'>页面头部标题</div>
+		<div class='body'>
+			<div class='content'>
+				<div class='leftnav'>
+					<table class='nav'>
 						<tr><td>标签一</td></tr>
 						<tr><td>标签二</td></tr>
 						<tr><td>标签三</td></tr>
@@ -24,352 +73,31 @@
 					</table>
 				</div>
 				
-				<!--需要写在 bootstrap-datepicker-extend 代码里-->
-				<div class="datepicker-bar" style="margin: 20px auto;">
-					<div class="datepicker-display">
-						<div class="datepicker-display-prevmonth" title="上月"></div>
-						<div class="datepicker-display-daterange">
-							<div class="datepicker-display-daterange dpstart"></div>
-							<div class="datepicker-display-daterange dpto">至</div>
-							<div class="datepicker-display-daterange dpend"></div>
-						</div>
-						<div class="datepicker-display-nextmonth" title="下月"></div>
-					</div>
-					<div class="datepicker-plugin">
-						<div class="datepicker-plugin-head">
-							<div class="datepicker-plugin-head-items">
-								<div class="datepicker-plugin-head-items-custom clicked" unselectable="on">自定义选择</div>
-								<div class="datepicker-plugin-head-items-month" unselectable="on">按月选择</div>
-								<div class="datepicker-plugin-head-items-week" unselectable="on">按投放周选择</div>
-							</div>
-						</div>
-						<div class="datepicker-plugin-body">
-							<div class="datepicker-plugin-body-custom" style="display: block;">
-								<div class="datepicker-plugin-body-custom-selector">
-									<div class="datepicker-plugin-body-custom-selector-text">自定义</div>
-									<div class="datepicker-plugin-body-custom-selector-list" unselectable="on">
-										<ul>
-											<li class='liselected'>自定义</li>
-											<li>本周</li>
-											<li>上周</li>
-											<li>本月</li>
-											<li>上月</li>
-											<li>本季</li>
-											<li>上季</li>
-											<li>今年</li>
-											<li>去年</li>
-											<li>近7天</li>
-											<li>近30天</li>
-										</ul>
-									</div>
-								</div>
-								<div class="datepicker-plugin-body-custom-dateranger input-daterange input-group">
-									<input type="text" class="input-sm form-control" name="start" />
-    								<span class="input-group-addon">至</span>
-	    							<input type="text" class="input-sm form-control" name="end" />
-								</div>
-							</div>
-							<div class="datepicker-plugin-body-month" style="display: none;"></div>
-							<div class="datepicker-plugin-body-week" style="display: none;">
-								<div style="line-height: 100px; text-align: center; width: 400px;">正在施工中……</div>
-							</div>
-						</div>
-						<div class="datepicker-plugin-foot">
-							<div class="datepicker-plugin-foot-confirm custom" unselectable="on">确&nbsp;&nbsp;&nbsp;认</div>
-						</div>
-					</div>
-				</div>
+				<div id="test1" style='margin: 20px auto;'></div>
 				
-				<script src="../js/bootstrap-datepicker.js"></script>
-				<script src="../js/locales/bootstrap-datepicker.zh-CN.js"></script>
+				
+				<div id='btn' style='width: 300px; height: 200px; background-color: pink; margin: 0 auto;' value="20170102">2018年1月1日-2019年1月1日</div>
+				<div id="11" style='margin: 20px auto;'></div>
 				<script>
-					
-					function formatDate(y, m, d) {
-						m = m < 10 ? ('0' + m) : m;
-						d = d < 10 ? ('0' + d) : d;
-						return y + '-' + m + '-' + d;
-					};
-					function setDisplayDaterange($this, sd, ed) {
-						var sdArray = sd.split('-'),
-							  edArray = ed.split('-'),
-							  sdString = sdArray[0] + "年" + sdArray[1] + "月" + sdArray[2] + "日",
-							  edString = edArray[0] + "年" + edArray[1] + "月" + edArray[2] + "日";
-							  
-						$this.parents('.datepicker-bar').find('.dpstart').html(sdString);
-						$this.parents('.datepicker-bar').find('.dpend').html(edString);
-					};
-					var itemNumber = 3,  // itemNumber 是 head 中的选择项的数目
-						  oneDayLong = 24 * 60 * 60 * 1000,  // 一天的毫秒数
-						  today = new Date(),  // 今天
-						  nowTime = today.getTime(),  // 当前时间
-						  todayWeekDay = today.getDay(),  // 今天对应的星期
-						  todayDate = today.getDate(),  // 今天对应的日期
-						  todayMonth = today.getMonth() + 1,  // 今天对应的月份
-						  todayYear = today.getFullYear(),  // 今天对应的年
-						  currentMonth = new Date(todayYear, todayMonth, 0),  // 当前月份
-						  displayMonth = currentMonth,  // 日期范围显示栏当前显示月份
-						  dateString = formatDate(todayYear, todayMonth, todayDate),  // 日期字符串：yyyy-mm-dd
-						  $daterangerObj = $('.datepicker-plugin-body-custom-dateranger'),  // 日期范围选择对象
-						  $monthObj = $('.datepicker-plugin-body-month'),  // 月份选择对象
-						  checkLiIsClicked = false;  // 判断下拉选项中的 li 是否被点击，用来区分是否为用户自定义时间范围
-						  
-					(function($this) {
-						$('.datepicker-plugin-head-items').css('width', 110 * itemNumber);  // 根据 head 中的选择项的数目来确定选择项的宽度
-						$('.datepicker-plugin-body-custom-dateranger input').attr('value', dateString);  // 初始化今天的日期
-						$monthObj.attr('data-date', dateString);  // 初始化选中本月
-						setDisplayDaterange($this, formatDate(todayYear, todayMonth, 1), formatDate(todayYear, todayMonth, currentMonth.getDate()));  // 初始化日期范围显示栏为当前月份
-					})($('.datepicker-display-daterange .dpto'));
-					// 【上月】按钮点击事件
-					$('.datepicker-display-prevmonth').click(function() {
-						var displayY = displayMonth.getFullYear(),
-							  displayM = displayMonth.getMonth(),
-							  displayD = displayMonth.getDate();
-							  prevM = new Date(displayY, displayM, 0);
-						
-						setDisplayDaterange($(this), formatDate(prevM.getFullYear(), prevM.getMonth() + 1, 1), formatDate(prevM.getFullYear(), prevM.getMonth() + 1, prevM.getDate()));
-						displayMonth = new Date(prevM.getFullYear(), prevM.getMonth(), prevM.getDate());
+					$.v6datepicker({
+						id: 'test1',
+						monthSelector: true,
+						weekSelector: true,
+						defaultCustomStart: '20101016',
+						defaultCustomEnd: '20111017',
+						defaultMonth: '202012'
 					});
-					// 【下月】按钮点击事件
-					$('.datepicker-display-nextmonth').click(function() {
-						var displayY = displayMonth.getFullYear(),
-							  displayM = displayMonth.getMonth(),
-							  displayD = displayMonth.getDate();
-							  nextM = new Date(displayY, displayM + 2, 0);
-						
-						setDisplayDaterange($(this), formatDate(nextM.getFullYear(), nextM.getMonth() + 1, 1), formatDate(nextM.getFullYear(), nextM.getMonth() + 1, nextM.getDate()));
-						displayMonth = new Date(nextM.getFullYear(), nextM.getMonth(), nextM.getDate());
+					$.v6datepicker({
+						id: '11',
+						width: 700,
+						customSelector: true,
+						monthSelector: true,
+						weekSelector: false
 					});
-					// 【自定义选择】标签中的时间范围选择插件
-					$daterangerObj.datepicker({
-						language: "zh-CN",
-						format: "yyyy-mm-dd",
-						todayHighlight: true,
-						maxViewMode: 2,
-						todayBtn: "linked",
-						autoclose: true,
-						orientation: "bottom auto"
-					});
-					// 【按月选择】标签中的时间选择插件
-					$monthObj.datepicker({
-						language: "zh-CN",
-						format: "yyyy-mm",
-						minViewMode: 1,
-						maxViewMode: 2
-					});
-					// display-daterange 点击显示或隐藏时间选择插件事件
-					$('.datepicker-display-daterange').click(function() {
-						$(this).parent('.datepicker-display').siblings('.datepicker-plugin').toggle();
-					});
-					// head 中的选择项的点击切换标签事件
-					$('.datepicker-plugin-head-items div').click(function() {
-						var $this = $(this);
-						if ($this.hasClass('clicked')) {
-							return;
-						}
-						var itemName = $this.attr("class").split("-")[4];
-						var bodyClassName = '.datepicker-plugin-body-' + itemName;
-						$('.datepicker-plugin-head-items div').removeClass("clicked");
-						$this.addClass("clicked");
-						$('.datepicker-plugin-body > div').css('display', 'none');
-						$(bodyClassName).css('display', 'block');
-						$this.parents('.datepicker-plugin-head').siblings('.datepicker-plugin-foot').find('.datepicker-plugin-foot-confirm').removeClass('custom month week').addClass(itemName);
-					});
-					// 【自定义选择】标签中下拉选项的点击事件
-					$('.datepicker-plugin-body-custom-selector').click(function(){
-						$(this).children('.datepicker-plugin-body-custom-selector-list').toggle();
-					});
-					$('.datepicker-plugin').click(function(e) {
-						e.stopPropagation();  // 点击时间选择插件内部时，停止事件冒泡
-						if (!$(e.target).hasClass('datepicker-plugin-body-custom-selector-text')){
-							$(this).find('.datepicker-plugin-body-custom-selector-list').css('display', 'none');  // 【自定义选择】下拉选项列表之外的点击事件
-						}
-					});
-					$(document).click(function(e) {
-						var $clickedTarget = $(e.target);
-						if (!$clickedTarget.hasClass('datepicker-plugin')) {  // 【时间选择插件】之外鼠标点击事件
-							if (!$clickedTarget.hasClass('datepicker-display-daterange')) {
-								$('.datepicker-plugin').css('display', 'none');
-								$('.datepicker-plugin-body-custom-selector-list').css('display', 'none');
-							}
-						}
-					});
-					// 【自定义选择】标签中点击下拉选项中的某一个选项时的点击事件
-					$('.datepicker-plugin-body-custom-selector-list li').click(function() {
-						var $this = $(this),
-							  $inputStart = $('input[name="start"]', $daterangerObj),
-							  $inputEnd = $('input[name="end"]', $daterangerObj);
-						$this.siblings('li').removeClass('liselected');
-						$this.addClass('liselected');
-						$this.parents('.datepicker-plugin-body-custom-selector-list').prev().text($(this).text());
-						switch($this.text()) {
-							case '本周': {
-								var thisMonday = new Date(nowTime - (todayWeekDay - 1) * oneDayLong),  // 本周一
-									  thisSunday = new Date(nowTime + (7 - todayWeekDay) * oneDayLong),  // 本周日
-									  thisMondayString = formatDate(thisMonday.getFullYear(), thisMonday.getMonth() + 1, thisMonday.getDate()),  // 格式化日期
-									  thisSundayString = formatDate(thisSunday.getFullYear(), thisSunday.getMonth() + 1, thisSunday.getDate());  // 格式化日期
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', thisMondayString);
-								$inputEnd.datepicker('setDate', thisSundayString);
-							}; break;
-							case '上周': {
-								var lastMonday = new Date(nowTime - (todayWeekDay - 1) * oneDayLong - oneDayLong * 7),  // 上周一
-									  lastSunday = new Date(nowTime + (7 - todayWeekDay) * oneDayLong - oneDayLong * 7),  // 上周日
-									  lastMondayString = formatDate(lastMonday.getFullYear(), lastMonday.getMonth() + 1, lastMonday.getDate()),  // 格式化日期
-									  lastSundayString = formatDate(lastSunday.getFullYear(), lastSunday.getMonth() + 1, lastSunday.getDate());  // 格式化日期
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', lastMondayString);
-								$inputEnd.datepicker('setDate', lastSundayString);
-							}; break;
-							case '本月': {
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', formatDate(todayYear, todayMonth, 1));
-								$inputEnd.datepicker('setDate', formatDate(todayYear, todayMonth, currentMonth.getDate()));
-							}; break;
-							case '上月': {
-								var lastMonth = new Date(todayYear, todayMonth - 1, 0);
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', formatDate(todayYear, todayMonth - 1, 1));
-								$inputEnd.datepicker('setDate', formatDate(todayYear, todayMonth - 1, lastMonth.getDate()));
-							}; break;
-							case '本季': {
-								var thisQuarterStart, thisQuarterEnd;
-								switch(todayMonth) {
-									case 1, 2, 3: {
-										thisQuarterStart = 1;
-										thisQuarterEnd = 3;
-									}; break;
-									case 4, 5, 6: {
-										thisQuarterStart = 4;
-										thisQuarterEnd = 6;
-									}; break;
-									case 7, 8, 9: {
-										thisQuarterStart = 7;
-										thisQuarterEnd = 9;
-									}; break;
-									case 10, 11, 12: {
-										thisQuarterStart = 10;
-										thisQuarterEnd = 12;
-									}; break;
-									default: break;
-								};
-								var thisQuarterEndDate = new Date(todayYear, thisQuarterEnd, 0);
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', formatDate(todayYear, thisQuarterStart, 1));
-								$inputEnd.datepicker('setDate', formatDate(todayYear, thisQuarterEnd, thisQuarterEndDate.getDate()));
-							}; break;
-							case '上季': {
-								var lastQuarterStart,
-									  lastQuarterEnd,
-									  lastQuarterYear = todayYear;
-								switch(todayMonth) {
-									case 1, 2, 3: {
-										lastQuarterStart = 10;
-										lastQuarterEnd = 12;
-										lastQuarterYear--;
-									}; break;
-									case 4, 5, 6: {
-										lastQuarterStart = 1;
-										lastQuarterEnd = 3;
-									}; break;
-									case 7, 8, 9: {
-										lastQuarterStart = 4;
-										lastQuarterEnd = 6;
-									}; break;
-									case 10, 11, 12: {
-										lastQuarterStart = 7;
-										lastQuarterEnd = 9;
-									}; break;
-									default: break;
-								};
-								var lastQuarterEndDate = new Date(lastQuarterYear, lastQuarterEnd, 0);
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', formatDate(lastQuarterYear, lastQuarterStart, 1));
-								$inputEnd.datepicker('setDate', formatDate(lastQuarterYear, lastQuarterEnd, lastQuarterEndDate.getDate()));
-							}; break;
-							case '今年': {
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', formatDate(todayYear, 1, 1));
-								$inputEnd.datepicker('setDate', formatDate(todayYear, 12, 31));
-							}; break;
-							case '去年': {
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', formatDate(todayYear - 1, 1, 1));
-								$inputEnd.datepicker('setDate', formatDate(todayYear - 1, 12, 31));
-							}; break;
-							case '近7天': {
-								var sevenDaysBefore = new Date(nowTime - 6 * oneDayLong),  // 七天前的日期
-									  sevenDaysBeforeString = formatDate(sevenDaysBefore.getFullYear(), sevenDaysBefore.getMonth() + 1, sevenDaysBefore.getDate());  // 格式化日期
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', sevenDaysBeforeString);
-								$inputEnd.datepicker('setDate', formatDate(todayYear, todayMonth, todayDate));
-							}; break;
-							case '近30天': {
-								var thirtyDaysBefore = new Date(nowTime - 29 * oneDayLong),  // 三十天前的日期
-									  thirtyDaysBeforeString = formatDate(thirtyDaysBefore.getFullYear(), thirtyDaysBefore.getMonth() + 1, thirtyDaysBefore.getDate());  // 格式化日期
-								checkLiIsClicked = true;
-								$inputStart.datepicker('setDate', thirtyDaysBeforeString);
-								$inputEnd.datepicker('setDate', formatDate(todayYear, todayMonth, todayDate));
-							}; break;
-							default: break;
-						}
-						checkLiIsClicked = false;
-					});
-					$('input', $daterangerObj).change(function() {
-						if (checkLiIsClicked == true) {
-							return;
-						} else {
-							$(this).parents('.datepicker-plugin-body-custom').find('.datepicker-plugin-body-custom-selector-text').text('自定义');
-							$(this).parents('.datepicker-plugin-body-custom').find('.datepicker-plugin-body-custom-selector-list li:first').siblings('li').removeClass('liselected');
-							$(this).parents('.datepicker-plugin-body-custom').find('.datepicker-plugin-body-custom-selector-list li:first').addClass('liselected');
-						}
-					});
-					// foot 中的确定按钮的鼠标按下事件
-					$('.datepicker-plugin-foot-confirm').mousedown(function() {
-						var $this = $(this);
-						$this.css('background-color', '#EEEEEE');
-						$this.on({
-							mouseout: function() {$this.css('background-color', '#FFFFFF');},
-							mouseover: function() {$this.css('background-color', '#EEEEEE');}
-						});
-					});
-					// 当鼠标抬起时，取消 foot 中确定按钮的效果的事件
-					$(document).mouseup(function() {
-							$('.datepicker-plugin-foot-confirm').off('mouseout mouseover');
-					});
-					// foot 中的确定按钮的鼠标抬起事件
-					$('.datepicker-plugin-foot-confirm').mouseup(function() {
-						var $this = $(this);
-						$this.css('background-color', '#FFFFFF');
-						if ($this.hasClass('custom')) {
-							var inputFirstVal = $('.datepicker-plugin-body-custom-dateranger input:first').val(),
-								  inputLastVal = $('.datepicker-plugin-body-custom-dateranger input:last').val(),
-								  inputLastValArray = inputLastVal.split('-');
-							setDisplayDaterange($this, inputFirstVal, inputLastVal);
-							displayMonth = new Date(inputLastValArray[0], inputLastValArray[1], 0);
-						} else if ($this.hasClass('month')) {
-							var pickedDateArray = $('.datepicker-plugin-body-month').datepicker('getFormattedDate').split('-'),
-								  curYear = parseInt(pickedDateArray[0]),
-								  curMonth = parseInt(pickedDateArray[1]),
-								  pickedDateString = new Date(curYear, curMonth, 0),
-								  curStartDate = formatDate(curYear, curMonth, 1);
-								  curEndDate = formatDate(curYear, curMonth, pickedDateString.getDate());
-							setDisplayDaterange($this, curStartDate, curEndDate);
-							displayMonth = pickedDateString;
-						} else if ($this.hasClass('week')) {
-							alert("正在施工中，敬请期待……");
-						}
-						$this.parents('.datepicker-plugin').css('display', 'none');
-					});
-//					$.v6datepicker({
-//						customSelector: false,
-//						monthSelector: false,
-//						weekSelector: false
-//					});
+					$('#btn').click(function() {alert($('#11').getDaterange());});
 				</script>
-				<!--需要写在 bootstrap-datepicker-extend 代码里-->
-				<div style="width: 300px; height: 200px; background-color: pink; margin: 0 auto;">skfjsdlfjdsjf</div>
 			</div>
 		</div>
-		<div class="foot">页脚文字………………</div>
+		<div class='foot'>页脚文字………………</div>
 	</body>
 </html>

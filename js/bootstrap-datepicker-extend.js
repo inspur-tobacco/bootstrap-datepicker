@@ -6,6 +6,7 @@ jQuery.v6datepicker = function(options) {
 			customSelector: false,
 			monthSelector: false,
 			weekSelector: false,
+			ajaxURL: "",
 			defaultCustomStart: "",
 			defaultCustomEnd: "",
 			defaultMonth: ""
@@ -120,8 +121,8 @@ jQuery.v6datepicker = function(options) {
 	
 	$thisDatepicker.append(datepickerBarString);  // 将生成好的内容插入到类名为“datepicker-bar”的 div 中
 	if (!$('head').hasClass("havingBSDPquote")) {  // 判断页面是否已经引用 bootstrap-datepicker.js 文件
-		// 引用 bootstrap-datepicker 的 css 文件和 bootstrap-datepicker 的 js 文件
-		$('head').append("<link rel='stylesheet' href='../dist/css/bootstrap-datepicker3.css' /><link href='css/bootstrap.min.css' rel='stylesheet' /><link rel='stylesheet' href='css/v6datepicker.css' /><script src='../js/bootstrap-datepicker.js'></script><script src='../js/locales/bootstrap-datepicker.zh-CN.js'></script>");
+		// 引用 bootstrap-datepicker 的 js 文件
+		$('head').append("<script src='../js/bootstrap-datepicker.js'></script><script src='../js/locales/bootstrap-datepicker.zh-CN.js'></script>");
 		$('head').addClass("havingBSDPquote");
 	}
 	
@@ -148,7 +149,7 @@ jQuery.v6datepicker = function(options) {
 			var $this = $(this);
 			$this.siblings('li').removeClass('liselected');
 			$this.addClass('liselected');
-			$this.parents('.datepicker-plugin-body-week-selector-list').prev().text($this.text()).val($this.attr('value'));
+			$this.parents('.datepicker-plugin-body-week-selector-list').prev().text($this.text()).val($this.attr('range-value'));
 		});
 	};
 	
@@ -181,7 +182,7 @@ jQuery.v6datepicker = function(options) {
 		}).on({
 			'changeDate': function() {
 				$thisDatepicker.find('.datepicker-plugin-body-week-selector-list').hide();
-				$thisDatepicker.find('.datepicker-plugin-body-week-selector-text').text("请选择投放周");
+				$thisDatepicker.find('.datepicker-plugin-body-week-selector-text').text("请选择投放周").val("");
 				$thisDatepicker.find('.datepicker-plugin-body-week-selector-list ul').remove();
 				var pickedMonthArray = $thisDatepicker.find('.datepicker-plugin-body-week-calendar').datepicker('getFormattedDate').split('-'),
 					  curYear = pickedMonthArray[0],
@@ -191,7 +192,7 @@ jQuery.v6datepicker = function(options) {
 				$.ajax({
 					type: "post",
 					data: ajaxData,
-					url: "http://10.10.10.67/bootstrap-datepicker/demo/pri_week.json",
+					url: parameters.ajaxURL,
 					async: true,
 					cache: false,
 					dataType: "json",
@@ -203,7 +204,9 @@ jQuery.v6datepicker = function(options) {
 								  curStartDate = parseInt(data[i].BEGIN_DATE.split('-')[2]),
 								  curEndMonth = parseInt(data[i].END_DATE.split('-')[1]),
 								  curEndDate = parseInt(data[i].END_DATE.split('-')[2]);
-							ulString += ("<li value='" + data[i].BEGIN_DATE + ":" + data[i].END_DATE +"'>" + curWeekName.substring(curWeekName.indexOf("月") + 1, curWeekName.length) + "(" + curStartMonth + "." + curStartDate + "-" + curEndMonth + "." + curEndDate + ")");
+							ulString += ("<li range-value='" + data[i].BEGIN_DATE + ":" + data[i].END_DATE +"'>" +
+											  curWeekName.substring(curWeekName.indexOf("月") + 1, curWeekName.length) +
+											  "(" + curStartMonth + "." + curStartDate + "-" + curEndMonth + "." + curEndDate + ")</li>");
 						}
 						ulString += "</ul>";
 						$thisDatepicker.find('.datepicker-plugin-body-week-selector-list').html(ulString);

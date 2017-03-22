@@ -3,9 +3,8 @@
 	<head>
 		<meta charset='UTF-8'>
 		<title>日期选择插件测试页面</title>
-		<link rel="stylesheet" href="css/demo.css" />
 		<script src='https://code.jquery.com/jquery-1.9.1.min.js'></script>
-		<script src="../js/bootstrap-datepicker-extend.js"></script>
+		<script src='../js/bootstrap-datepicker-extend.js'></script>
 		<style type="text/css">
 .head
 {
@@ -75,15 +74,15 @@
 				</div>
 				
 				<div id="test1" style='margin: 20px auto;'></div>
-				<div id='show1' style='width: 300px; height: 50px; background-color: pink; margin: 0 auto; cursor: pointer; text-align: center; line-height: 50px;' value="20170102">显示上方时间选择插件日期范围</div>
+				
+				
+				<div id='btn' style='width: 300px; height: 200px; background-color: pink; margin: 0 auto;' value="20170102">2018年1月1日-2019年1月1日</div>
 				<div id="11" style='margin: 20px auto;'></div>
-				<div id='show2' style='width: 300px; height: 50px; background-color: pink; margin: 0 auto; cursor: pointer; text-align: center; line-height: 50px;' value="20170102">显示上方时间选择插件日期范围</div>
 				<script>
 					$.v6datepicker({
 						id: 'test1',
 						monthSelector: true,
 						weekSelector: true,
-						ajaxURL: "http://10.10.10.67/demos/v6datepicker/demo.json",
 						defaultCustomStart: '20101016',
 						defaultCustomEnd: '20111017',
 						defaultMonth: '202012'
@@ -95,8 +94,7 @@
 						monthSelector: true,
 						weekSelector: false
 					});
-					$('#show1').click(function() {alert($('#test1').getDaterange());});
-					$('#show2').click(function() {alert($('#11').getDaterange());});
+					$('#btn').click(function() {alert($('#11').getDaterange());});
 				</script>
 			</div>
 		</div>

@@ -1,0 +1,282 @@
+/* 时间选择插件 css 代码 */
+.datepicker-bar
+{
+	height: 30px;
+	position: relative;
+}
+.datepicker-display
+{
+	height: inherit;
+	float: left;
+	background-color: #FFFFFF;
+	border: solid #999999 1px;
+}
+.datepicker-display-prevmonth
+{
+	cursor: pointer;
+	width: 30px;
+	height: 29px;
+	float: left;
+	border-right: solid #999999 1px;
+	background-image: url(../img/prevmonth_bg.png);
+	background-repeat: no-repeat;
+}
+.datepicker-display-daterange
+{
+	color: #555555;
+	cursor: pointer;
+	width: 340px;
+	height: 29px;
+	float: left;
+	margin-left: -1px;
+}
+.datepicker-display-daterange .dpstart
+{
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	float: left;
+	margin-left: 40px;
+}
+.datepicker-display-daterange .dpto
+{
+	width: 21px;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	float: left;
+}
+.datepicker-display-daterange .dpend
+{
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	float: left;
+	margin-right: 40px;
+}
+.datepicker-display-nextmonth
+{
+	cursor: pointer;
+	width: 30px;
+	height: 29px;
+	float: left;
+	margin-left: -1px;
+	border-left: solid #999999 1px;
+	background-image: url(../img/nextmonth_bg.png);
+	background-repeat: no-repeat;
+}
+.datepicker-plugin
+{
+	height: auto;
+	float: left;
+	margin-top: -1px;
+	background-color: #FFFFFF;
+	border: solid #999999 1px;
+	display: none;
+	position: absolute;
+	top: 30px;
+	z-index: 999;
+}
+.datepicker-plugin-head
+{
+	width: auto;
+}
+.datepicker-plugin-head-items
+{
+	height: 30px;
+	margin: 15px auto;
+	border-radius: 4px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+.datepicker-plugin-head-items div
+{
+	cursor: pointer;
+	text-align: center;
+	line-height: 28px;
+	float: left;
+	width: 110px;
+	height: inherit;
+	padding: 0px;
+	margin: 0px 0px 0px -1px;
+	background-color: #FFFFFF;
+	border: solid #CCCCCC 1px;
+}
+.datepicker-plugin-head-items .clicked
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-body
+{
+	width: inherit;
+	height: auto;
+}
+.datepicker-plugin-body-custom
+{
+	width: inherit;
+	height: 35px;
+}
+.datepicker-plugin-body-custom-selector
+{
+	cursor: pointer;
+	float: left;
+	width: 105px;
+	height: 30px;
+	line-height: 28px;
+	text-align: center;
+	margin-right: 15px;
+	border: solid #CCCCCC 1px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+.datepicker-plugin-body-custom-selector-text
+{
+	display: block;
+	width: auto;
+	height: inherit;
+	line-height: inherit;
+	text-align: center;
+	background-image: url(../img/selector_bg.png);
+	background-repeat: no-repeat;
+}
+.datepicker-plugin-body-custom-selector-list
+{
+	display: none;
+	float: left;
+	background-color: #FFFFFF;
+	margin-top: -2px;
+	margin-left: -1px;
+	border: solid #CCCCCC 1px;
+}
+.datepicker-plugin-body-custom-selector-list ul
+{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+.datepicker-plugin-body-custom-selector-list ul .liselected
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-body-custom-selector-list li
+{
+	cursor: pointer;
+	display: block;
+	width: 103px;
+}
+.datepicker-plugin-body-custom-selector-list li:hover
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-body-custom-dateranger
+{
+	float: left;
+	width: 225px;
+}
+.datepicker-plugin-body-custom-dateranger input
+{
+	width: 100px;
+}
+.datepicker-plugin-body-month
+{
+	width: 220px;
+	height: 215px;
+	margin: 0px auto;
+}
+.datepicker-plugin-body-week
+{
+	width: inherit;
+	height: 215px;
+}
+.datepicker-plugin-body-week-calendar
+{
+	width: 220px;
+	height: 215px;
+	float: left;
+}
+.datepicker-plugin-body-week-selector
+{
+	cursor: pointer;
+	float: left;
+	width: 170px;
+	height: 30px;
+	line-height: 28px;
+	margin-left: -10px;
+	margin-top: 24px;
+	border: solid #CCCCCC 1px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+.datepicker-plugin-body-week-selector-text
+{
+	display: block;
+	width: auto;
+	height: inherit;
+	line-height: inherit;
+	text-align: left;
+	padding-left: 5px;
+	background-image: url(../img/weekselector_bg.png);
+	background-repeat: no-repeat;
+	position: relative;
+}
+.datepicker-plugin-body-week-selector-list
+{
+	display: none;
+	float: left;
+	background-color: #FFFFFF;
+	margin-top: -2px;
+	margin-left: -1px;
+	border: solid #CCCCCC 1px;
+	position: absolute;
+	z-index: 999;
+}
+.datepicker-plugin-body-week-selector-list ul
+{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+.datepicker-plugin-body-week-selector-list ul .liselected
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-body-week-selector-list li
+{
+	cursor: pointer;
+	display: block;
+	padding-left: 5px;
+	width: 168px;
+}
+.datepicker-plugin-body-week-selector-list li:hover
+{
+	background-color: #EEEEEE;
+}
+.datepicker-plugin-foot
+{
+	width: inherit;
+	height: 50px;
+}
+.datepicker-plugin-foot-confirm
+{
+	cursor: pointer;
+	text-align: center;
+	line-height: 28px;
+	width: 80px;
+	height: 30px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	background-color: #FFFFFF;
+	border: solid #CCCCCC 1px;
+	-webkit-touch-callout: none;  /* iOS Safari */
+	-webkit-user-select: none;  /* Chrome、Safari、Opera */
+	-moz-user-select: none;  /* Firefox */
+	-ms-user-select: none;  /* Internet Explorer、Edge */
+}
+/* 时间选择插件 css 代码 */

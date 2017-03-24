@@ -3,10 +3,12 @@ jQuery.v6datepicker = function(options) {
 	var defaultOptions = {  // 默认选项
 			id: "",
 			width: 400,
-			customSelector: false,
-			monthSelector: false,
+			customSelector: true,
+			monthSelector: true,
 			weekSelector: false,
 			ajaxURL: "",
+			defaultDisplayStart: "",
+			defaultDisplayEnd: "",
 			defaultCustomStart: "",
 			defaultCustomEnd: "",
 			defaultMonth: ""
@@ -191,7 +193,7 @@ jQuery.v6datepicker = function(options) {
 					  ajaxData = curYear + curMonth;
 				$.ajax({
 					type: "post",
-					data: ajaxData,
+					data: {"month": ajaxData},
 					url: parameters.ajaxURL,
 					async: true,
 					cache: false,
@@ -279,7 +281,20 @@ jQuery.v6datepicker = function(options) {
 				  d = parseInt(parameters.defaultCustomEnd.substring(6, 8));
 			$inputEnd.datepicker('setDate', formatDate(y, m, d));  // 初始化结束日期为自定义日期
 		}
-		setDisplayDaterange($thisDatepicker, formatDate(todayYear, todayMonth, 1), formatDate(todayYear, todayMonth, currentMonth.getDate())); // 初始化日期范围显示栏为当前月份
+		if (parameters.defaultDisplayStart) {
+			var defaultDS = parameters.defaultDisplayStart.substring(0, 4) + "-" + parameters.defaultDisplayStart.substring(4, 6) + "-" + parameters.defaultDisplayStart.substring(6, 8);
+			if (parameters.defaultDisplayEnd) {
+				var defaultDE = parameters.defaultDisplayEnd.substring(0, 4) + "-" + parameters.defaultDisplayEnd.substring(4, 6) + "-" + parameters.defaultDisplayEnd.substring(6, 8);
+				setDisplayDaterange($thisDatepicker, defaultDS, defaultDE);
+			} else {
+				setDisplayDaterange($thisDatepicker, defaultDS, defaultDS);
+			}
+		} else if (parameters.defaultDisplayEnd) {
+			var defaultDE = parameters.defaultDisplayEnd.substring(0, 4) + "-" + parameters.defaultDisplayEnd.substring(4, 6) + "-" + parameters.defaultDisplayEnd.substring(6, 8);
+			setDisplayDaterange($thisDatepicker, defaultDE, defaultDE);
+		} else {
+			setDisplayDaterange($thisDatepicker, formatDate(todayYear, todayMonth, 1), formatDate(todayYear, todayMonth, currentMonth.getDate())); // 初始化日期范围显示栏为当前月份
+		}
 	}
 	
 	// 点击事件初始化函数

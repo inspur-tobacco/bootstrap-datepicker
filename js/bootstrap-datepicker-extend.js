@@ -136,6 +136,7 @@ jQuery.v6datepicker = function(options) {
 		  
 	// 设置日期范围显示栏内的日期范围函数
 	var setDisplayDaterange = function($this, sd, ed) {
+		// 注意在调用这个函数之后，要修改变量 displayMonth
 		var sdArray = sd.split('-'),
 			edArray = ed.split('-'),
 			sdString = sdArray[0] + "年" + sdArray[1] + "月" + sdArray[2] + "日",
@@ -286,12 +287,15 @@ jQuery.v6datepicker = function(options) {
 			if (parameters.defaultDisplayEnd) {
 				var defaultDE = parameters.defaultDisplayEnd.substring(0, 4) + "-" + parameters.defaultDisplayEnd.substring(4, 6) + "-" + parameters.defaultDisplayEnd.substring(6, 8);
 				setDisplayDaterange($thisDatepicker, defaultDS, defaultDE);
+				displayMonth = new Date(parseInt(defaultDE.split('-')[0]), parseInt(defaultDE.split('-')[1]), 0);
 			} else {
 				setDisplayDaterange($thisDatepicker, defaultDS, defaultDS);
+				displayMonth = new Date(parseInt(defaultDS.split('-')[0]), parseInt(defaultDS.split('-')[1]), 0);
 			}
 		} else if (parameters.defaultDisplayEnd) {
 			var defaultDE = parameters.defaultDisplayEnd.substring(0, 4) + "-" + parameters.defaultDisplayEnd.substring(4, 6) + "-" + parameters.defaultDisplayEnd.substring(6, 8);
 			setDisplayDaterange($thisDatepicker, defaultDE, defaultDE);
+			displayMonth = new Date(parseInt(defaultDE.split('-')[0]), parseInt(defaultDE.split('-')[1]), 0);
 		} else {
 			setDisplayDaterange($thisDatepicker, formatDate(todayYear, todayMonth, 1), formatDate(todayYear, todayMonth, currentMonth.getDate())); // 初始化日期范围显示栏为当前月份
 		}

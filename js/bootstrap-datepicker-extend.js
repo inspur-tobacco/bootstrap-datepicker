@@ -572,14 +572,16 @@ jQuery.v6datepicker = function(options) {
 				if (inputFirstValArray[0] > inputLastValArray[0]) {
 					alert("开始时间不能大于结束时间，请检查！");
 					return;
-				}
-				if (inputFirstValArray[1] > inputLastValArray[1]) {
-					alert("开始时间不能大于结束时间，请检查！");
-					return;
-				}
-				if (inputFirstValArray[2] > inputLastValArray[2]) {
-					alert("开始时间不能大于结束时间，请检查！");
-					return;
+				} else if (inputFirstValArray[0] == inputLastValArray[0]) {
+					if (inputFirstValArray[1] > inputLastValArray[1]) {
+						alert("开始时间不能大于结束时间，请检查！");
+						return;
+					} else if (inputFirstValArray[1] == inputLastValArray[1]) {
+						if (inputFirstValArray[2] > inputLastValArray[2]) {
+							alert("开始时间不能大于结束时间，请检查！");
+							return;
+						}
+					}
 				}
 				setDisplayDaterange($thisDatepicker, inputFirstVal, inputLastVal);
 				displayMonth = new Date(inputLastValArray[0], inputLastValArray[1], 0);

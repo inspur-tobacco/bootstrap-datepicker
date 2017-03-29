@@ -72,6 +72,9 @@ jQuery.v6datepicker = function(options) {
 		  datepickerBarString = "",
 		  $thisDatepicker = $("#" + parameters.id);
 	
+	// 如果原来有时间选择插件，则清空原来的插件内容（特别是在修改 AJAX 地址并重新传入时）
+	$thisDatepicker.empty();
+	
 	// 初始化【按月选择】参数
 	if (parameters.defaultMonth == "" || parameters.defaultMonth == null || parameters.defaultMonth == "undefined") {
 		monthSelectorOptions.year = todayYear;

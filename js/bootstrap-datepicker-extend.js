@@ -211,7 +211,7 @@ jQuery.v6datepicker = function(options) {
 								  curEndMonth = parseInt(data[i].END_DATE.split('-')[1]),
 								  curEndDate = parseInt(data[i].END_DATE.split('-')[2]);
 							ulString += ("<li range-value='" + data[i].BEGIN_DATE + ":" + data[i].END_DATE +"'>" +
-											  curWeekName.substring(curWeekName.indexOf("月") + 1, curWeekName.length) +
+											  curWeekName.substring(curWeekName.indexOf("第"), curWeekName.indexOf("周") + 1) +
 											  "(" + curStartMonth + "." + curStartDate + "-" + curEndMonth + "." + curEndDate + ")</li>");
 						}
 						ulString += "</ul>";

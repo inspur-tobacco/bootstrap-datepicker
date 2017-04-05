@@ -419,25 +419,33 @@ jQuery.v6datepicker = function(options) {
 					{
 						var thisQuarterStart, thisQuarterEnd;
 						switch(todayMonth) {
-							case 1, 2, 3:
+							case 1:
+							case 2:
+							case 3:
 								{
 									thisQuarterStart = 1;
 									thisQuarterEnd = 3;
 								};
 								break;
-							case 4, 5, 6:
+							case 4:
+							case 5:
+							case 6:
 								{
 									thisQuarterStart = 4;
 									thisQuarterEnd = 6;
 								};
 								break;
-							case 7, 8, 9:
+							case 7:
+							case 8:
+							case 9:
 								{
 									thisQuarterStart = 7;
 									thisQuarterEnd = 9;
 								};
 								break;
-							case 10, 11, 12:
+							case 10:
+							case 11:
+							case 12:
 								{
 									thisQuarterStart = 10;
 									thisQuarterEnd = 12;
@@ -458,26 +466,34 @@ jQuery.v6datepicker = function(options) {
 							lastQuarterEnd,
 							lastQuarterYear = todayYear;
 						switch(todayMonth) {
-							case 1, 2, 3:
+							case 1:
+							case 2:
+							case 3:
 								{
 									lastQuarterStart = 10;
 									lastQuarterEnd = 12;
 									lastQuarterYear--;
 								};
 								break;
-							case 4, 5, 6:
+							case 4:
+							case 5:
+							case 6:
 								{
 									lastQuarterStart = 1;
 									lastQuarterEnd = 3;
 								};
 								break;
-							case 7, 8, 9:
+							case 7:
+							case 8:
+							case 9:
 								{
 									lastQuarterStart = 4;
 									lastQuarterEnd = 6;
 								};
 								break;
-							case 10, 11, 12:
+							case 10:
+							case 11:
+							case 12:
 								{
 									lastQuarterStart = 7;
 									lastQuarterEnd = 9;
